@@ -16,6 +16,14 @@ import matplotlib.pyplot as plt
 
 #treino com o aumento de dados
 
+
+'''
+OBS
+Nao necessariamente precisamos rodar uma base da dados grande....podemos pegar boas imagens e criar mais dados partindo 
+destes bons dados....o KERAS já oferece direto funcoes para sobrecarregar a base com esses dados " modificados "
+
+'''
+
 print("\n.....")
 print("\nTeste com o algoritmo para aumento de dados .....")
 
@@ -96,7 +104,8 @@ model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
 
-
+#preciso adequadar o numero de exemplos ( treino e teste ) com meu batch...tanto para nao ficar lento como nao para treinar
+#com dados irrelevantes
 history = model.fit_generator(
     train_generator,
     steps_per_epoch = nb_train_samples // batch_size,
